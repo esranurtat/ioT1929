@@ -1,0 +1,33 @@
+#include<dht.h>
+dht dht11;
+
+#define dhtpin 7
+
+
+void setup() {
+  Serial.begin(9600);
+
+}
+
+void loop() {
+  int okunanDeger= dht11.read11(dhtpin);
+
+  Serial.print("Sıcaklık celcius:");
+  Serial.println(dht11.temperature);
+  float celcius=dht11.temperature;
+  float fahrenheit=1.8*celcius+32;
+  float kelvin=celcius-273;
+
+  Serial.print("Sıcaklık kelvin:");
+  Serial.println(fahrenheit);
+
+  Serial.print("Sıcaklık fahrenheit:");
+  Serial.println(kelvin);
+ 
+ 
+  Serial.print("Nem:");
+  Serial.println(dht11.humidity);
+  
+  delay(1000);
+
+}
